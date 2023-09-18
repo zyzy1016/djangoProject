@@ -19,11 +19,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from rest_framework import routers
 
-from oAuth.views import UserInfoViewSet, UserViewSet
+from oAuth.views import UserInfoViewSet, UserViewSet,  UserCreateViewSet
 
 router_V1 = routers.DefaultRouter()
 router_V1.register('info', UserInfoViewSet)
-router_V1.register(r'users', UserViewSet)
+router_V1.register('users/create/activate', UserCreateViewSet)
+router_V1.register('users/create', UserCreateViewSet)
+router_V1.register('users', UserViewSet)
+# router_V1.register('books', BookViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

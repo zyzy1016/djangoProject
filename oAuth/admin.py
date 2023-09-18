@@ -14,7 +14,7 @@ class NewUserAdmin(UserAdmin):
         (_('Important dates'), {'fields': ('date_joined',)}),
     )
 
-    list_display = ('id', 'username', 'roles', 'email', 'is_active', 'last_login')
+    list_display = ('id', 'username', 'roles', 'email', 'is_active', 'last_login', 'code')
     list_display_links = ('id', 'username', 'roles', 'email', 'last_login')
     search_fields = ('username', 'email')
 

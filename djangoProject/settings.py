@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'oAuth.apps.OauthConfig',
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -154,3 +156,13 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFELINE': timedelta(days=1),
     'UPDATE_LAST_LOGIN': True
 }
+
+# 支持跨域配置开始
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'      #126邮箱的邮箱服务地址
+EMAIL_PORT = 25          #端口，大部分都是默认25
+EMAIL_HOST_USER = '15729090470@163.com'    #这里是你的邮箱账号
+EMAIL_HOST_PASSWORD = 'RZIFAEECKGAYZJQI'   #注意这里不能用你邮箱账号的密码，而要用申请的设备授权码。
